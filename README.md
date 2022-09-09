@@ -57,26 +57,26 @@ const reindeers =[
     }
 ]
 
-## function to calculate distance traveled per reindeer
-const calculateDistance = (reeinder ,travelingTime )=>{
-    const traveledSegment = Math.floor(travelingTime/(reeinder.flyDuration + reeinder.restDuration));
-    const segmentRest = travelingTime% (reeinder.flyDuration + reeinder.restDuration);
-    return ((traveledSegment*reeinder.flyDuration + Math.min(reeinder.flyDuration ,segmentRest ))*reeinder.vitesse)
+### function to calculate distance traveled per reindeer
+const calculateDistance = (reeinder ,travelingTime )=>{ \
+    const traveledSegment = Math.floor(travelingTime/(reeinder.flyDuration + reeinder.restDuration));\
+    const segmentRest = travelingTime% (reeinder.flyDuration + reeinder.restDuration);\
+    return ((traveledSegment*reeinder.flyDuration + Math.min(reeinder.flyDuration ,segmentRest ))*reeinder.vitesse)\
 }
 
-## function return the distance traveled by the winnings reindeers
-const maxDistanceTraveled = (travelingTime , ...reindeers)=>{
-    let maxDistance = 0;
-    const firstReindeer = reindeers.reduce((acc,item)=>{
-        if(calculateDistance(item,travelingTime) > maxDistance){
-            maxDistance = calculateDistance(item,travelingTime)
-            acc = item
-        }
-        return maxDistance
-    },{})
-        console.log(firstReindeer)
-    return firstReindeer
-}
-const winningsReindeersDistace = maxDistanceTraveled(2503 , ...reindeers)
+### function return the distance traveled by the winnings reindeers
+const maxDistanceTraveled = (travelingTime , ...reindeers)=>{ \
+    let maxDistance = 0; \
+    const firstReindeer = reindeers.reduce((acc,item)=>{\ 
+        if(calculateDistance(item,travelingTime) > maxDistance){ \ 
+            maxDistance = calculateDistance(item,travelingTime) \
+            acc = item \
+        }\
+        return maxDistance\
+    },{})\
+    return firstReindeer\
+}\
+
+const winningsReindeersDistace = maxDistanceTraveled(2503 , ...reindeers)\
 
 console.log(winningsReindeersDistace) // 2660 
