@@ -113,6 +113,8 @@ restDuration :145
 
 ]
 
+### Function to calculate distance travelled per reindeer
+
 const calculateDistance = (reeinder ,travelingTime )=>{
 
 const traveledSegment = Math.floor(travelingTime/(reeinder.flyDuration + reeinder.restDuration));
@@ -122,6 +124,9 @@ const segmentRest = travelingTime% (reeinder.flyDuration + reeinder.restDuration
 return ((traveledSegment*reeinder.flyDuration + Math.min(reeinder.flyDuration ,segmentRest ))*reeinder.vitesse)
 
 }
+
+## function return the distance traveled by tha winnings reindeers
+
 
 const maxDistanceTraveled = (travelingTime , ...reindeers)=>{
 
